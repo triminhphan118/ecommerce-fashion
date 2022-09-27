@@ -1,0 +1,33 @@
+.checkbox-custom {
+    @include flex(center, flex-start);
+    gap: 20px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all .3s;
+    &:hover {
+        background-color: rgba($color: $primary-color, $alpha: .2);
+    }
+    input {
+        display: none;
+    }
+
+    &__spare {
+        width: 30px;
+        height: 30px;
+        border: 1px solid rgba($color: #000000, $alpha: .2);
+        border-radius: 6px;
+        position: relative;
+        &::after {
+            content: '';
+            background-color: $primary-color;
+            position: absolute;
+            inset: 100%;
+            border-radius: inherit;
+        }
+    }
+
+    input:checked + &__spare:after {
+        inset: 4px;
+    }
+}

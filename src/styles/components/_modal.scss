@@ -1,0 +1,53 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba($color: #000000, $alpha: .5);
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        
+        .modal__body {
+            animation: slideDown .4s linear;
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        }
+    }
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    // &__overlay {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     right: 0;
+    //     bottom: 0;
+    // }
+
+    &__body {
+        position: relative;
+        padding: 20px;
+        width: 800px;
+        background-color: #fff;
+        border-radius: 4px;
+        margin: 50px auto;
+        z-index: 999;
+
+        &__close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+    }
+}

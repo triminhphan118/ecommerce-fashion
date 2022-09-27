@@ -1,0 +1,128 @@
+.header {
+    position: fixed;
+    background-color: $primary-bg;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    height: $header-height;
+    transition: .2s;
+    @include tablet {
+        height: $header-tablet-height;
+        box-shadow: $box-shadow;
+    }
+
+    @include mobile {
+        height: $header-mobile-height;
+    }
+    .container {
+        height: 100%;
+    }
+
+    &.shinrk {
+        height: $header-shinrk-height;
+        box-shadow: $box-shadow;
+        z-index: 99;
+    }
+
+    &__logo {
+        @include flex(center, center);
+        position: absolute;
+        inset: 0;
+        height: 100%;
+        pointer-events: none;
+
+        img {
+            width: 100%;
+            height: 28px;
+            object-fit: cover;
+        }
+    }
+
+    &__menu {
+        @include flex(center, space-between);
+        height: 100%;
+
+        &__item .active {
+            font-weight: 600;
+            color: $primary-color;
+        }
+
+        &__item:hover {
+            font-weight: 600;
+            color: $primary-color;
+        }
+
+        &__left,
+        &__right {
+            @include flex(center, center);
+            gap: 30px;
+
+            @include mobile {
+                gap: 4px;
+            }
+        }
+
+        &__right &__right__item {
+            @include flex(center, center);
+            font-size: 2.5rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            filter: opacity(.5);
+            line-height: 1;
+            @include mobile {
+                font-size: 2rem;
+            }
+        }
+
+        &__left {
+
+            @include moblieAndTablet {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 30px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: $primary-bg;
+                transition: 0.3s linear;
+                z-index: 10;
+                transform: translateX(-100%);
+
+
+                &.active {
+                    transform: translateX(0);
+                }
+
+
+                .header__menu__mobile__close {
+                    @include flex(center, center);
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background-color: $primary-color;
+                    padding: 5px 5px;
+                    color: $text-white;
+                    font-size: 3rem;
+                    border-radius: 50%;
+                }
+            }
+
+        }
+        &__mobile__close {
+            display: none;
+        }
+        &__mobile__toggle {
+            display: none;
+            @include moblieAndTablet {
+                display: block;
+                font-size: 3rem;
+            }
+        }
+    }
+}

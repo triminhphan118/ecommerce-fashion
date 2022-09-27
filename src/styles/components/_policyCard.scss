@@ -1,0 +1,34 @@
+.policy-card {
+    @include flex(flex-start, flex-start);
+    gap: 12px;
+    padding: 12px;
+    border-radius: 4px;
+    box-shadow: $box-shadow;
+    border: 1px solid rgba($color: #000000, $alpha: .2);
+    transition: .3s linear;
+    &__icon {
+        font-size: 3rem;
+        font-weight: 600;
+        color: $primary-color;
+    }
+
+    &__info {
+        @include flex(flex-start, flex-start);
+        flex-direction: column;
+        gap: 1px;
+
+        &__title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: $primary-color
+        }
+        &__desc {
+            font-size: 1.4rem;
+            color: $text-second-color
+        }
+    }
+
+    &:hover {
+        transform: scale(.9) rotate(-5deg);
+    }
+}

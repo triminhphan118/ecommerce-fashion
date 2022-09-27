@@ -1,0 +1,35 @@
+.footer {
+    padding: 40px 0;
+    box-shadow: $box-shadow;
+
+    &__item {
+        &__title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: $primary-color;
+        }
+
+        &__content {
+            list-style: none;
+            li{
+                margin-top: 12px;
+            }
+
+            li a:hover {
+                color: $primary-color;
+            }
+        }
+    }
+
+    &__logo {
+        height: 40px;
+        img {
+            height: 100%;
+            // object-fit: cover;
+        }
+    }
+
+    &__desc {
+        margin-top: 12px;
+    }
+}
